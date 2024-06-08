@@ -1,6 +1,6 @@
 <div align="left">
   <h1>Welcome! 🏴󠁧󠁢󠁷󠁬󠁳󠁿🇺🇦</h1>
-  <p>I'm **divnerd** - a backend developer, python lover, high-schooler, and ponderer of whether or not HTML is a programming language. </p><br>
+  <p>I'm <strong>divnerd</strong> - a backend developer, python lover, high-schooler, and ponderer of whether or not HTML is a programming language. </p><br>
   
   
   <h2>My Setup</h2>
