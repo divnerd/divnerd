@@ -1,16 +1,17 @@
-## Hi there 👋
+<div align="left">
+  <h1>Welcome! 🏴󠁧󠁢󠁷󠁬󠁳󠁿🇺🇦</h1>
+  <p>I'm **divnerd** - a backend developer, python lover, high-schooler, and ponderer of whether or not HTML is a programming language. </p><br>
+  
+  
+  <h2>My Setup</h2>
+  <img src="https://skillicons.dev/icons?i=apple,vscode,androidstudio,gmail&perline=2"/><br><br><br>
+  
+  <h2>Favorite Languages</h2>
+  <img src="https://skillicons.dev/icons?i=python,coffeescript,js,typescript&perline=2" /><br><br><br>
 
-<!--
-**divnerd/divnerd** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+  <h2>Favorite Dev Tools</h2>
+  <img src="https://skillicons.dev/icons?i=github,git,markdown,stackoverflow,vscode,ubuntu&perline=3"/><br><br><br>
 
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+  <h2>Tools I Want to Learn</h2>
+  <img src="https://skillicons.dev/icons?i=kotlin,java,cs,htmx&perline=2"/><br><br><br>
+</div>
