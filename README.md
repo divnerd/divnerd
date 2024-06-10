@@ -7,7 +7,7 @@
   <img src="https://skillicons.dev/icons?i=apple,vscode,androidstudio,gmail&perline=2"/><br><br><br>
   
   <h2>Favorite Languages</h2>
-  <img src="https://skillicons.dev/icons?i=python,mojo,js,typescript&perline=2" /><br><br><br>
+  <img src="https://skillicons.dev/icons?i=python,coffeescript,js,typescript&perline=2" /><br><br><br>
 
   <h2>Favorite Dev Tools</h2>
   <img src="https://skillicons.dev/icons?i=github,git,markdown,stackoverflow,vscode,ubuntu&perline=3"/><br><br><br>
