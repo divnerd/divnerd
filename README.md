@@ -1,7 +1,9 @@
+
+
+  <h1>Welcome! 🏴󠁧󠁢󠁷󠁬󠁳󠁿🇺🇦</h1> <img src="https://komarev.com/ghpvc/?username=divnerd&color=1B7951&style=for-the-badge&label=Github+Profile+Views" alt="Profile Views"/>
 <div align="left">
-  <h1>Welcome! 🏴󠁧󠁢󠁷󠁬󠁳󠁿🇺🇦</h1>
-  <p>I'm <strong>divnerd</strong> - a backend developer, python lover, high-schooler, and ponderer of whether or not HTML is a programming language. </p><br>
   
+  <p>I'm <strong>divnerd</strong> - a backend developer, python lover, high-schooler, and ponderer of whether or not HTML is a programming language. </p><br>
   
   <h2>My Setup</h2>
   <img src="https://skillicons.dev/icons?i=apple,vscode,androidstudio,gmail&perline=2"/><br><br><br>
