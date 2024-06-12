@@ -2,9 +2,6 @@
 
   <h1>Welcome! 🏴󠁧󠁢󠁷󠁬󠁳󠁿🇺🇦</h1> <img src="https://komarev.com/ghpvc/?username=divnerd&color=1B7951&style=for-the-badge&label=Github+Profile+Views" alt="Profile Views"/>
 <div align="left">
-
-  ![](divnerd/markdown_output.md)<br>
-
   
   <h2>My Setup</h2>
   <img src="https://skillicons.dev/icons?i=apple,vscode,androidstudio,gmail&perline=2"/><br><br><br>
