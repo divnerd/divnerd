@@ -4,6 +4,9 @@
 <div align="left">
   
   <p>I'm <strong>divnerd</strong> - a backend developer, python lover, and high-schooler. I'm in my school's cybersecurity club and I've been programming for </p><br>
+
+  ![](/path/to/markdown_output.md)
+
   
   <h2>My Setup</h2>
   <img src="https://skillicons.dev/icons?i=apple,vscode,androidstudio,gmail&perline=2"/><br><br><br>
