@@ -2,10 +2,8 @@
 
   <h1>Welcome! 🏴󠁧󠁢󠁷󠁬󠁳󠁿🇺🇦</h1> <img src="https://komarev.com/ghpvc/?username=divnerd&color=1B7951&style=for-the-badge&label=Github+Profile+Views" alt="Profile Views"/>
 <div align="left">
-  
-  <p>I'm <strong>divnerd</strong> - a backend developer, python lover, and high-schooler. I'm in my school's cybersecurity club and I've been programming for </p><br>
 
-  ![](divnerd/markdown_output.md)
+  ![](divnerd/markdown_output.md)<br>
 
   
   <h2>My Setup</h2>
