@@ -16,4 +16,7 @@
 
   <h2>Tools I Want to Learn</h2>
   <img src="https://skillicons.dev/icons?i=kotlin,java,cs,htmx&perline=2"/><br><br><br>
+
+  <!--START_SECTION:activity-->
+  
 </div>
