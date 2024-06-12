@@ -18,5 +18,6 @@
   <img src="https://skillicons.dev/icons?i=kotlin,java,cs,htmx&perline=2"/><br><br><br>
 
   <!--START_SECTION:activity-->
+  <!--END_SECTION:activity-->
   
 </div>
