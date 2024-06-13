@@ -2,7 +2,7 @@ name: Update Programming Days Counter
 
 on:
   schedule:
-    - cron: "32 6 * * *" 
+    - cron: "35 6 * * *" 
 
 jobs:
   update-readme:
