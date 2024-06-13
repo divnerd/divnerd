@@ -20,5 +20,4 @@ jobs:
       - name: Update README.md
         run: |
           echo "Sed command: sed -i 's/{day_placeholder}/'"$days_passed"'/g' README.md"
-          
           sed -i 's/{day_placeholder}/'"$days_passed"'/g' README.md
