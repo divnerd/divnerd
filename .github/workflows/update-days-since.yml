@@ -1,5 +1,4 @@
-name: Update Programming Days Counter
-
+name: Update Days Since
 on:
   schedule:
     - cron: "*/30 * * * *" 
