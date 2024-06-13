@@ -1,7 +1,7 @@
 name: Update Days Since
 on:
   schedule:
-    - cron: "37 14 * * *" 
+    - cron: "38 14 * * *" 
 
 jobs:
   update-readme:
