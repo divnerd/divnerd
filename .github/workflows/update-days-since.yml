@@ -12,10 +12,13 @@ jobs:
         run: |
           start_date="2023-09-05"
           today=$(date +%Y-%m-%d)
+          echo "Today's date: $today"
           days=$(date -d "$today" +%j)
           start_days=$(date -d "$start_date" +%j)
           days_passed=$((days - start_days))
           echo "Days passed: $days_passed"
       - name: Update README.md
         run: |
+          echo "Sed command: sed -i 's/{CALCULATED VALUE OF DAYS}/'"$days_passed"'/g' README.md"
+          
           sed -i 's/{day_placeholder}/'"$days_passed"'/g' README.md
