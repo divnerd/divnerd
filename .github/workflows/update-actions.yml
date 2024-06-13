@@ -1,4 +1,4 @@
-name: Update Recents
+name: Update Actions
 on:
   schedule:
     - cron: "*/30 * * * *"
