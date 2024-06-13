@@ -19,4 +19,4 @@ jobs:
           echo "Days passed: $days_passed"
       - name: Update README.md
         run: |
-          sed -i 's/{CALCULATED VALUE OF DAYS}/'"$days_passed"'/g' README.md
+          sed -i 's/{day_placeholder}/'"$days_passed"'/g' README.md
