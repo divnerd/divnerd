@@ -1,36 +1,38 @@
-name: Update Days Since
+name: Update README
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * *' # Run daily at midnight UTC
+  workflow_dispatch: # Allows manual triggering
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
+        uses: actions/checkout@v3
       - name: Calculate days and update README
         run: |
           #!/usr/bin/env python3
           import datetime
-          
-          start_date = datetime.date(2023, 9, 5) 
+
+          start_date = datetime.date(2023, 9, 5)
           today = datetime.date.today()
           days_passed = (today - start_date).days
-          
+
+          # Read the README.md file
           with open('README.md', 'r') as f:
-              readme = f.read()
+            readme = f.read()
+
+          # Update the placeholder
           updated_readme = readme.replace('{day_placeholder}', str(days_passed))
+
+          # Write the updated README.md file
           with open('README.md', 'w') as f:
-              f.write(updated_readme)
+            f.write(updated_readme)
+
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update day counter, bot triggered"
+          commit_message: "Update day counter"
           file_pattern: README.md
