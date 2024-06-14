@@ -10,23 +10,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Calculate days and update README
         run: |
           import datetime
-
-          start_date = datetime.date(2023, 9, 5)
-          today = datetime.date.today()
-          days_passed = (today - start_date).days
-
-          with open('README.md', 'r') as f:
-            readme = f.read()
-
-          updated_readme = readme.replace('{day_placeholder}', str(days_passed))
-
-          with open('README.md', 'w') as f:
-            f.write(updated_readme)
+          import os
+          
+          readme_file = "README.md"
+          placeholder = "{day_placeholder}
+          target_date = datetime.date(2023, 9, 5)
+          
+          try:
+              with open(readme_file, "r", encoding="utf-8") as f:
+                  readme_content = f.read()
+          except FileNotFoundError:
+              print(f"Error: README.md file not found at '{readme_file}'.")
+              return
+      
+          if placeholder not in readme_content:
+              print(f"Error: Placeholder '{placeholder}' not found in README.md.")
+              return
+      
+          days_elapsed = (datetime.date.today() - target_date).days
+          updated_content = readme_content.replace(placeholder, str(days_elapsed))
+      
+          try:
+              with open(readme_file, "w", encoding="utf-8") as f:
+                  f.write(updated_content)
+              print(f"Successfully updated '{readme_file}' with elapsed days.")
+          except Exception as e:
+              print(f"Error updating '{readme_file}': {e}")
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
