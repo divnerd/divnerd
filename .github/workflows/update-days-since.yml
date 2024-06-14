@@ -13,21 +13,17 @@ jobs:
         uses: actions/checkout@v3
       - name: Calculate days and update README
         run: |
-          #!/usr/bin/env python3
           import datetime
 
           start_date = datetime.date(2023, 9, 5)
           today = datetime.date.today()
           days_passed = (today - start_date).days
 
-          # Read the README.md file
           with open('README.md', 'r') as f:
             readme = f.read()
 
-          # Update the placeholder
           updated_readme = readme.replace('{day_placeholder}', str(days_passed))
 
-          # Write the updated README.md file
           with open('README.md', 'w') as f:
             f.write(updated_readme)
 
