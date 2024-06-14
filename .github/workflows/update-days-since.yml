@@ -1,31 +1,26 @@
 name: Update Days Since
+
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/30 * * * *"
+
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Calculate days
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update README
         run: |
-          start_date="2023-09-05"
-          today=$(date +%Y-%m-%d)
-          echo "Today's date: $today"
-          days=$(date -d "$today" +%j)
-          start_days=$(date -d "$start_date" +%j)
-          days_passed=$((days - start_days))
-          echo "Days passed: $days_passed"
-      - name: Update README.md
-        run: |
-          echo "Sed command: sed -i 's/{day_placeholder}/'"$days_passed"'/g' README.md"
           sed -i "s/{day_placeholder}/$days_passed/g" README.md
-      - name: Commit and Push Changes
-        uses: EndBug/add-and-commit@v7
-        with:
-          message: 'Update programming days counter'
-          add: 'README.md'
-          committer_name: 'divnerd-bot'
-          committer_email: 'divnerd-bot@users.noreply.github.com' 
-          branch: 'main'
-          push: true
+
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git commit -m "Update README" || echo "No changes to commit"
+          git push
