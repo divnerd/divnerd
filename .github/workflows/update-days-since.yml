@@ -1,7 +1,8 @@
 name: Update Days Since
 on:
+  workflow_dispatch: # Allows manual runs
   schedule:
-    - cron: "* * * * *" # Run every minute
+    - cron: "* * * * *" # Run every minute 
 
 jobs:
   update-readme:
