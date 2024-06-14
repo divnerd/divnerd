@@ -1,33 +1,36 @@
 name: Update Days Since
+
 on:
-  workflow_dispatch: # Allows manual runs
   schedule:
-    - cron: "* * * * *" # Run every minute 
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
-  update-readme:
+  update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Calculate days
-        run: |
-          start_date="2023-09-05"
-          today=$(date +%Y-%m-%d)
-          echo "Today's date: $today"
-          days=$(date -d "$today" +%j)
-          start_days=$(date -d "$start_date" +%j)
-          days_passed=$((days - start_days))
-          echo "Days passed: $days_passed"
-      - name: Update README.md
-        run: |
-          echo "Sed command: sed -i 's/{day_placeholder}/'"$days_passed"'/g' README.md"
-          sed -i "s/{day_placeholder}/$days_passed/g" README.md
-      - name: Commit and Push Changes
-        uses: EndBug/add-and-commit@v7
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-          message: 'Update programming days counter'
-          add: 'README.md'
-          committer_name: 'divnerd-bot'
-          committer_email: 'divnerd-bot@users.noreply.github.com' 
-          branch: 'main'
-          push: true
+          python-version: '3.x'
+      - name: Calculate days and update README
+        run: |
+          #!/usr/bin/env python3
+          import datetime
+          
+          start_date = datetime.date(2023, 9, 5) 
+          today = datetime.date.today()
+          days_passed = (today - start_date).days
+          
+          with open('README.md', 'r') as f:
+              readme = f.read()
+          updated_readme = readme.replace('{day_placeholder}', str(days_passed))
+          with open('README.md', 'w') as f:
+              f.write(updated_readme)
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update day counter, bot triggered"
+          file_pattern: README.md
