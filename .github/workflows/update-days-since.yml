@@ -18,7 +18,7 @@ jobs:
           import os
           
           readme_file = "README.md"
-          placeholder = "{day_placeholder}
+          placeholder = "{day_placeholder}"
           target_date = datetime.date(2023, 9, 5)
           
           try:
@@ -27,14 +27,14 @@ jobs:
           except FileNotFoundError:
               print(f"Error: README.md file not found at '{readme_file}'.")
               return
-      
+          
           if placeholder not in readme_content:
               print(f"Error: Placeholder '{placeholder}' not found in README.md.")
               return
-      
+          
           days_elapsed = (datetime.date.today() - target_date).days
           updated_content = readme_content.replace(placeholder, str(days_elapsed))
-      
+          
           try:
               with open(readme_file, "w", encoding="utf-8") as f:
                   f.write(updated_content)
