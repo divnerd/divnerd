@@ -1,8 +1,7 @@
 name: Update Days Since
 on:
   schedule:
-    - cron: "*/30 * * * *" 
-
+    - cron: "*/5 * * * *"
 jobs:
   update-readme:
     runs-on: ubuntu-latest
@@ -21,3 +20,12 @@ jobs:
         run: |
           echo "Sed command: sed -i 's/{day_placeholder}/'"$days_passed"'/g' README.md"
           sed -i "s/{day_placeholder}/$days_passed/g" README.md
+      - name: Commit and Push Changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'Update programming days counter'
+          add: 'README.md'
+          committer_name: 'divnerd-bot'
+          committer_email: 'divnerd-bot@users.noreply.github.com' 
+          branch: 'main'
+          push: true
