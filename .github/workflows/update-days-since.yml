@@ -12,35 +12,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Calculate days and update README
+      - name: Calculate days and update README with Python
         run: |
+          python -c "
           import datetime
-          import os
-          
-          readme_file = "README.md"
-          placeholder = "{day_placeholder}"
-          target_date = datetime.date(2023, 9, 5)
-          
+
+          days_elapsed = str((datetime.datetime.now() - datetime.datetime(2023, 9, 5)).days)
+          file_name = 'README.md'
+
           try:
-              with open(readme_file, "r", encoding="utf-8") as f:
-                  readme_content = f.read()
+              with open(file_name, 'r') as file:
+                  content = file.read()
+                  content = content.replace('placeholder', days_elapsed)
+
+              with open(file_name, 'w') as file:
+                  file.write(content)
+
           except FileNotFoundError:
-              print(f"Error: README.md file not found at '{readme_file}'.")
-              return
-          
-          if placeholder not in readme_content:
-              print(f"Error: Placeholder '{placeholder}' not found in README.md.")
-              return
-          
-          days_elapsed = (datetime.date.today() - target_date).days
-          updated_content = readme_content.replace(placeholder, str(days_elapsed))
-          
-          try:
-              with open(readme_file, "w", encoding="utf-8") as f:
-                  f.write(updated_content)
-              print(f"Successfully updated '{readme_file}' with elapsed days.")
-          except Exception as e:
-              print(f"Error updating '{readme_file}': {e}")
+              print('File not found.')
+          except Exception:
+              print('An error occurred.')
+          "
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
