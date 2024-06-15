@@ -2,7 +2,7 @@ name: Update README
 
 on: 
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "58 23 * * *"
   workflow_dispatch:
 
 jobs:
@@ -16,22 +16,24 @@ jobs:
         run: |
           python -c "
           import datetime
+          import time
 
-          days_elapsed = str((datetime.datetime.now() - datetime.datetime(2023, 9, 5)).days)
-          file_name = 'README.md'
+          days_elapsed = str((datetime.datetime.now() - datetime.datetime(2023, 9, 5)).days)          
+          file_name = "/Users/garethflandro/Documents/Coding/README.md"
 
+          time.sleep(5*60)
+          
           try:
-              with open(file_name, 'r') as file:
+              with open(file_name, "r") as file:
                   content = file.read()
-                  content = content.replace('placeholder', days_elapsed)
-
-              with open(file_name, 'w') as file:
+                  new_days = str(int(days_elapsed) + 1)
+                  content = content.replace(days_elapsed, new_days)
+          
+              with open(file_name, "w") as file:
                   file.write(content)
-
-          except FileNotFoundError:
-              print('File not found.')
-          except Exception:
-              print('An error occurred.')
+          
+          except Exception as e:
+              print(f"An error occurred: {e}")
           "
 
       - name: Commit changes
