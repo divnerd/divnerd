@@ -19,14 +19,14 @@ jobs:
           import time
 
           days_elapsed = str((datetime.datetime.now() - datetime.datetime(2023, 9, 5)).days)          
-          file_name = "README.md"
+          file_name = 'README.md'
           
-          with open(file_name, "r") as file:
+          with open(file_name, 'r') as file:
               content = file.read()
               new_days = str(int(days_elapsed) + 1)
               content = content.replace(days_elapsed, new_days)
       
-          with open(file_name, "w") as file:
+          with open(file_name, 'w') as file:
               file.write(content)
           "
 
