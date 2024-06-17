@@ -3,6 +3,7 @@ name: Update Days Since
 on: 
   schedule:
     - cron: "58 23 * * *" 
+  workflow_dispatch:
 
 jobs:
   update:
