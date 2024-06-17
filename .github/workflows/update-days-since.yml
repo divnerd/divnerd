@@ -3,9 +3,6 @@ name: Update Days Since
 on: 
   schedule:
     - cron: "58 23 * * *" 
-  push:
-    branches:
-      -main
 
 jobs:
   update:
