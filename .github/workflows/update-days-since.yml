@@ -29,9 +29,6 @@ jobs:
           
               with open(file_name, "w") as file:
                   file.write(content)
-          
-          except Exception as e:
-              print(f"An error occurred: {e}")
           "
 
       - name: Commit changes
