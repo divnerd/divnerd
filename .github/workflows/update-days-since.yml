@@ -1,43 +1,66 @@
-name: Update Days Since
+# name: Update Days Since
 
-on: 
+# on: 
+#   schedule:
+#     - cron: "58 23 * * *"
+#   workflow_dispatch:
+
+# jobs:
+#   update:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+
+#       - name: Calculate days and update README with Python
+#         run: |
+#           python -c "
+#           import datetime
+#           import time
+
+#           days_elapsed = str((datetime.datetime.now() - datetime.datetime(2023, 9, 5)).days)          
+#           file_name = "divnerd/README.md"
+
+#           time.sleep(5*60)
+          
+#           try:
+#               with open(file_name, "r") as file:
+#                   content = file.read()
+#                   new_days = str(int(days_elapsed) + 1)
+#                   content = content.replace(days_elapsed, new_days)
+          
+#               with open(file_name, "w") as file:
+#                   file.write(content)
+          
+#           except Exception as e:
+#               print(f"An error occurred: {e}")
+#           "
+
+#       - name: Commit changes
+#         uses: stefanzweifel/git-auto-commit-action@v5
+#         with:
+#           commit_message: "Update day counter"
+#           file_pattern: README.md
+
+name: Update Programming Days Counter
+
+on:
   schedule:
-    - cron: "58 23 * * *"
-  workflow_dispatch:
+    - cron: "32 6 * * *" # Run every day at midnight
 
 jobs:
-  update:
+  update-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Calculate days and update README with Python
+      - uses: actions/checkout@v3
+      - name: Calculate days
         run: |
-          python -c "
-          import datetime
-          import time
-
-          days_elapsed = str((datetime.datetime.now() - datetime.datetime(2023, 9, 5)).days)          
-          file_name = "divnerd/README.md"
-
-          time.sleep(5*60)
-          
-          try:
-              with open(file_name, "r") as file:
-                  content = file.read()
-                  new_days = str(int(days_elapsed) + 1)
-                  content = content.replace(days_elapsed, new_days)
-          
-              with open(file_name, "w") as file:
-                  file.write(content)
-          
-          except Exception as e:
-              print(f"An error occurred: {e}")
-          "
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Update day counter"
-          file_pattern: README.md
+          start_date="2023-09-05"
+          today=$(date +%Y-%m-%d)
+          days=$(date -d "$today" +%j)
+          start_days=$(date -d "$start_date" +%j)
+          days_passed=$((days - start_days))
+          echo "Days passed: $days_passed"
+      - name: Update README.md
+        run: |
+          sed -i 's/{CALCULATED VALUE OF DAYS}/'"$days_passed"'/g' README.md
