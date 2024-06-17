@@ -20,8 +20,6 @@ jobs:
 
           days_elapsed = str((datetime.datetime.now() - datetime.datetime(2023, 9, 5)).days)          
           file_name = "divnerd/README.md"
-
-          time.sleep(5*60)
           
           try:
               with open(file_name, "r") as file:
