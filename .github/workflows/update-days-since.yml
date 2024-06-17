@@ -2,8 +2,7 @@ name: Update Days Since
 
 on: 
   schedule:
-    - cron: "58 23 * * *"
-  workflow_dispatch:
+    - cron: "58 23 * * *" 
 
 jobs:
   update:
