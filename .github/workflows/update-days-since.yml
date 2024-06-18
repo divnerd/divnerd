@@ -12,8 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 80db474ffaecc208bf04ada1944d18b5
-
+      - name: Find Days Since Value via Python
         run: |
           python -c "
           import datetime
